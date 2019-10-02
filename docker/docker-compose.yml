@@ -1,0 +1,16 @@
+version: '2.1'
+
+services:
+
+  laravel-docker-boilerplate-web:
+    container_name: laravel-docker-boilerplate-web
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "11111:80"
+    volumes:
+      - ../src:/app:cached
+    env_file:
+      - .env-dev
+    command: /bin/bash -c /run/web.sh
